@@ -31,6 +31,8 @@
             </a>
           
             <a href="/test" class="list-group-item list-group-item-action"> - TestCRUD </a>
+
+            <a href="/member" class="list-group-item list-group-item-action"> - Member </a>
            
              
 
