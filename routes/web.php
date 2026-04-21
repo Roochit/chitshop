@@ -27,3 +27,6 @@ Route::get('/member/{id}',  [MemberController::class, 'edit']);
 Route::put('/member/{id}',  [MemberController::class, 'update']);
 // Route::delete('/member/remove/{id}',  [MemberController::class, 'remove']);
 Route::delete('/member/remove/{id}', [MemberController::class, 'remove']);
+
+Route::get('/member/reset/{id}',  [MemberController::class, 'reset']);
+Route::put('/member/reset/{id}',  [MemberController::class, 'resetPassword']);

@@ -47,8 +47,8 @@ public function index()
             'member_name.min' => 'กรอกข้อมูลขั้นต่ำ :min ตัวอักษร',
 
             // Password
-            'member_name.required' => 'กรุณากรอกข้อมูล',
-            'member_name.min' => 'กรอกข้อมูลขั้นต่ำ :min ตัวอักษร',
+            'password.required' => 'กรุณากรอกข้อมูล',
+            'password.min' => 'กรอกข้อมูลขั้นต่ำ :min ตัวอักษร',
 
             // Role 
             'role.required' => 'กรุณาเลือกสิทธิ์การใช้งาน',
@@ -90,62 +90,125 @@ public function index()
 
 
 
- public function edit($id)
+//  public function edit($member_id)
+//     {
+//         try {
+//             //query data for form edit 
+//             $member = MemberModel::findOrFail($member_id); // ใช้ findOrFail เพื่อให้เจอหรือ 404
+//             if (isset($test)) {
+//                 $member_id = $member->member_id;
+//                 $name = $test->name;
+//                 $name2 = $test->name2;
+//                 return view('test.edit', compact('id', 'name' , 'name2'));
+//             }
+//         } catch (\Exception $e) {
+//             //return response()->json(['error' => $e->getMessage()], 500); //สำหรับ debug
+//             return view('errors.404');
+//         }
+//     } //func edit
+    
+
+
+//  public function update($id, Request $request)
+//     {
+//         //vali msg 
+//         $messages = [
+//             'name.required' => 'กรุณากรอกข้อมูล',
+//             'name.min' => 'กรอกข้อมูลขั้นต่ำ :min ตัวอักษร',
+//             'name.unique' => 'ชื่อนี้ถูกใช้งานแล้ว',  //ป้องกันแก้ซ้ำกับ row อื่นๆ จ้าาา
+
+//             'name2.required' => 'กรุณากรอกข้อมูล',
+//             'name2.min' => 'กรอกข้อมูลขั้นต่ำ :min ตัวอักษร',
+//         ];
+
+//         //rule
+//         $validator = Validator::make($request->all(), [
+//             'name' => [
+//                     'required',
+//                     'min:3',
+//                         Rule::unique('tbl_test', 'name')->ignore($id, 'id'), //ห้ามแก้ซ้ำ
+//             ],
+//             'name2' => 'required','min:3',
+//     ], $messages);
+
+//     //check 
+//         if ($validator->fails()) {
+//             return redirect('test/' . $id)
+//                 ->withErrors($validator)
+//                 ->withInput();
+//         }
+
+//         try {
+//             $test = TestModel::find($id);
+//             $test->update([
+//                     'name' => strip_tags($request->input('name')), //column update 
+//                     'name2' => strip_tags($request->input('name2')), //column update 
+//                 ]);
+//             // แสดง Alert ก่อน return
+//             Alert::success('Update Successfully');
+//             return redirect('/test');
+//         } catch (\Exception $e) {
+//             //return response()->json(['error' => $e->getMessage()], 500); //สำหรับ debug
+//             return view('errors.404');
+//         }
+//     } //fun update 
+
+
+    public function reset ($id)
     {
         try {
-            //query data for form edit 
-            $test = TestModel::findOrFail($id); // ใช้ findOrFail เพื่อให้เจอหรือ 404
-            if (isset($test)) {
-                $id = $test->id;
-                $name = $test->name;
-                $name2 = $test->name2;
-                return view('test.edit', compact('id', 'name' , 'name2'));
+            // ค้นหาข้อมูลด้วย member_id
+            $member = MemberModel::findOrFail($id); 
+
+            // ตรวจสอบว่ามีข้อมูลจริง (ใช้ $member แทน $test)
+            if ($member) {
+                $member_id = $member->member_id;
+                $member_name = $member->member_name;
+                $member_username = $member->member_username;
+
+                // แก้ไขชื่อตัวแปรใน compact ให้ถูกต้อง
+                return view('member.resetPassword', compact('member_id', 'member_name', 'member_username'));
             }
         } catch (\Exception $e) {
-            //return response()->json(['error' => $e->getMessage()], 500); //สำหรับ debug
-            return view('errors.404');
+            // ถ้าไม่เจอข้อมูลให้เด้งกลับพร้อมแจ้งเตือน (สไตล์ SweetAlert ที่เราตั้งไว้)
+            Alert::error('ไม่พบข้อมูล', 'ไม่พบรายชื่อผู้ใช้งานนี้ในระบบ');
+            return redirect('/member');
         }
-    } //func edit
+    } //func reset
 
-
- public function update($id, Request $request)
+    public function resetPassword($id, Request $request)
     {
         //vali msg 
         $messages = [
-            'name.required' => 'กรุณากรอกข้อมูล',
-            'name.min' => 'กรอกข้อมูลขั้นต่ำ :min ตัวอักษร',
-            'name.unique' => 'ชื่อนี้ถูกใช้งานแล้ว',  //ป้องกันแก้ซ้ำกับ row อื่นๆ จ้าาา
+            'new_password.required' => 'กรุณากรอกข้อมูล',
+            'new_password.min' => 'กรอกข้อมูลขั้นต่ำ :min ตัวอักษร',
+            'new_password.same' => 'รหัสผ่านไม่ตรงกัน',  //ป้องกันแก้ซ้ำกับ row อื่นๆ จ้าาา
 
-            'name2.required' => 'กรุณากรอกข้อมูล',
-            'name2.min' => 'กรอกข้อมูลขั้นต่ำ :min ตัวอักษร',
+            'confirm_password.required' => 'กรุณากรอกข้อมูล',
+            'confirm_password.min' => 'กรอกข้อมูลขั้นต่ำ :min ตัวอักษร',
         ];
 
         //rule
         $validator = Validator::make($request->all(), [
-            'name' => [
-                    'required',
-                    'min:3',
-                        Rule::unique('tbl_test', 'name')->ignore($id, 'id'), //ห้ามแก้ซ้ำ
-            ],
-            'name2' => 'required','min:3',
+            'new_password' => 'required','min:6','same:confirm_password',
+            'confirm_password' => 'required','min:6',
     ], $messages);
 
     //check 
         if ($validator->fails()) {
-            return redirect('test/' . $id)
+            return redirect('member/reset/' . $id)
                 ->withErrors($validator)
                 ->withInput();
         }
 
         try {
-            $test = TestModel::find($id);
-            $test->update([
-                    'name' => strip_tags($request->input('name')), //column update 
-                    'name2' => strip_tags($request->input('name2')), //column update 
+            $member = MemberModel::find($id);
+            $member->update([
+                    'password' => bcrypt($request->input('confirm_password')), //column update 
                 ]);
             // แสดง Alert ก่อน return
-            Alert::success('Update Successfully');
-            return redirect('/test');
+            Alert::success('แก้ไขรหัสผ่านเสร็จสิ้น');
+            return redirect('/member');
         } catch (\Exception $e) {
             //return response()->json(['error' => $e->getMessage()], 500); //สำหรับ debug
             return view('errors.404');

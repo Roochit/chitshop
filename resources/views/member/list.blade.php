@@ -40,7 +40,7 @@
             <td>{{ $row->member_username }}  </td>
             <td>{{ $row->role }}  </td>
             <td>
-                    <a href="/member/{{ $row->member_id }}" class="btn btn-warning btn-sm">Reset</a>
+                    <a href="/member/reset/{{ $row->member_id }}" class="btn btn-warning btn-sm">Reset</a>
             </td>
             <td>
                     <a href="/member/{{ $row->member_id }}" class="btn btn-warning btn-sm">edit</a>
