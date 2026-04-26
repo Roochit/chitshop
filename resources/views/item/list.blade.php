@@ -20,9 +20,11 @@
 
         <tbody>
             @foreach($products as $row)
+            
             <tr>
                 {{-- ใช้ item_id แทน id --}}
-                <td align="center">{{ $row->item_id }}</td>
+                <td align="center"> {{ $loop->iteration }}.  <!--เรียงลำดับใหม่  --></td>
+                {{-- <td align="center">{{ $row->item_id }}</td> --}}
                 <td>
                     {{-- แสดงภาพจากคอลัมน์ image_path --}}
                     @if($row->image_path)
