@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\MemberController;
@@ -19,7 +20,7 @@ Route::get('/test/{id}',  [TestController::class, 'edit']);
 Route::put('/test/{id}',  [TestController::class, 'update']);
 Route::delete('/test/remove/{id}',  [TestController::class, 'remove']);
 
-//Member crud
+// Member crud
 Route::get('/member', [MemberController::class, 'index']);
 Route::get('/member/adding',  [MemberController::class, 'adding']);
 Route::post('/member',  [MemberController::class, 'create']);
@@ -31,3 +32,12 @@ Route::delete('/member/remove/{id}', [MemberController::class, 'remove']);
 // แก้รหัสผ่าน
 Route::get('/member/reset/{id}',  [MemberController::class, 'reset']);
 Route::put('/member/reset/{id}',  [MemberController::class, 'resetPassword']);
+
+//item crud
+Route::get('/item', [ItemController::class, 'index']);
+Route::get('/item/adding',  [ItemController::class, 'adding']);
+Route::post('/item',  [ItemController::class, 'create']);
+Route::get('/item/{id}',  [ItemController::class, 'edit']);
+Route::put('/item/{id}',  [ItemController::class, 'update']);
+Route::delete('/item/remove/{id}',  [ItemController::class, 'remove']);
+
