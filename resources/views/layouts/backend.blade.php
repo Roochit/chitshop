@@ -29,22 +29,24 @@
 
         <div class="col-md-3">
           <div class="list-group">
-            <a href="/" class="list-group-item list-group-item-action " aria-current="true" style="background-color: #305a5d; color: #ffffff ">
+            <a href="/" class="list-group-item list-group-item-action btn-home-custom " aria-current="true">
               Home
             </a>
           
-            <a href="/test" class="list-group-item list-group-item-action"> - TestCRUD </a>
+            <a href="/test" class="list-group-item list-group-item-action btn-side_bar-custom"> - TestCRUD </a>
 
-            <a href="/member" class="list-group-item list-group-item-action"> - Member </a>
+            <a href="/member" class="list-group-item list-group-item-action btn-side_bar-custom"> - Member </a>
 
-            <a href="/item" class="list-group-item list-group-item-action"> - Product </a>
+            <a href="/item" class="list-group-item list-group-item-action btn-side_bar-custom"> - Product </a>
            
-            <a href="/" class="list-group-item list-group-item-action"  style="background-color: #ff431e; color: #ffffff "> 
+            
+            
+            
+            
+            
+            <a href="/" class="list-group-item list-group-item-action btn-logout-custom"> 
                 Log Out 
             </a>
-
- 
-          
           </div>
           @yield('sidebarMenu')
         </div>
@@ -78,8 +80,8 @@
 <style>
     /* กำหนดตัวแปรสีเพื่อให้แก้ง่าย */
     :root {
-        --primary-blue: #2FDBEB; /* สีฟ้าอ่อนตาม Header bar ที่คุณออกแบบ */
-        --accent-orange: #EB7D2F; /* สีส้มอมแดงตามปุ่มที่คุณออกแบบ */
+        /* --primary-blue: #2FDBEB; สีฟ้าอ่อนตาม Header bar ที่คุณออกแบบ */
+        /* --accent-orange: #D6732D; สีส้มอมแดงตามปุ่มที่คุณออกแบบ */
         --bg-body: #F0F3F7;      /* สีพื้นหลังเทาอ่อนๆ */
         --text-dark: #333333;
     }
@@ -102,11 +104,6 @@
     }
 
     /* 2. ปรับแต่ง Sidebar Menu */
-    .nav-pills .nav-link.active {
-        /* background-color: var(--primary-blue) !important; */
-        background-color: #2FDBEB !important;
-        color: var(--text-dark) !important;
-    }
 
     .nav-pills .nav-link {
         color: var(--text-dark);
@@ -116,27 +113,9 @@
 
     .nav-pills .nav-link:hover {
         background-color: #E0F7FA;
+        
     }
 
-    /* ปุ่ม 'ออกจากระบบ' ให้เป็นสีส้ม */
-    .nav-pills .nav-link.bg-danger {
-        background-color: var(--accent-orange) !important;
-        color: white !important;
-    }
-
-    /* 3. ปรับแต่งตาราง (Table) */
-    .table-responsive {
-        background: white;
-        border-radius: 15px;
-        padding: 15px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    }
-
-    .table-bordered {
-        border-collapse: separate;
-        border-spacing: 0;
-        border: none;
-    }
 
     /* ทำให้หัวตารางโค้งมน */
     .table-bordered thead th:first-child { border-top-left-radius: 10px; }
@@ -164,36 +143,144 @@
 
     /* ปุ่ม '+' (Add Data) */
     .btn-primary {
-        background-color: var(--primary-blue);
+        background-color: #2FDBEB; /* สีเหลือง */
+        color: #000000 !important;           /* ตัวอักษรสีขาว */
+        box-shadow: 0 4px 8px rgba(235, 125, 47, 0.3); /* แถม: เพิ่มเงาส้มอ่อนๆ ตอนชี้ */
         border: none;
-        color: var(--text-dark);
+        /* background-color: var(--primary-blue);
+        border: none;
+        color: var(--text-dark); */
     }
 
     .btn-primary:hover {
-        background-color: #2FDBEB;
-        transform: translateY(-1px);
+        border: 2px solid #2FDBEB !important; 
+        color: #2FDBEB !important;
+        background-color: white !important; /* ใส่พื้นหลังขาวเพื่อให้ขอบเด่น */
+        border-radius: 12px !important;
+        padding: 4px 12px !important;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none !important;
+        display: inline-block;;
     }
 
     /* ปุ่มแก้ไข */
     .btn-warning {
         background-color: #FFC107; /* สีเหลือง */
+        color: #000000 !important;           /* ตัวอักษรสีขาว */
+        box-shadow: 0 4px 8px rgba(235, 125, 47, 0.3); /* แถม: เพิ่มเงาส้มอ่อนๆ ตอนชี้ */
         border: none;
+    }
+    .btn-warning:hover {
+        border: 2px solid #FFC107 !important; 
+        color: #FFC107 !important;
+        background-color: white !important; /* ใส่พื้นหลังขาวเพื่อให้ขอบเด่น */
+        /* border-radius: 12px !important;
+        padding: 4px 12px !important;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none !important; */
+        display: inline-block;;
     }
 
     /* ปุ่มลบ (ใช้สีส้ม) */
     .btn-danger {
-        background-color: var(--accent-orange);
-        border: none;
+        background-color: #EB7D2F !important; /* เปลี่ยนพื้นหลังเป็นสีส้ม */
+        color: #ffffff !important;           /* ตัวอักษรสีขาว */
+        box-shadow: 0 4px 8px rgba(235, 125, 47, 0.3); /* แถม: เพิ่มเงาส้มอ่อนๆ ตอนชี้ */
     }
-
     .btn-danger:hover {
-        background-color: #EB7D2F;
+        border: 2px solid #EB7D2F !important; 
+        color: #EB7D2F !important;
+        background-color: white !important; /* ใส่พื้นหลังขาวเพื่อให้ขอบเด่น */
+        border-radius: 12px !important;
+        padding: 4px 12px !important;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none !important;
+        display: inline-block;;
     }
 
-    /* ปรับแต่งส่วน Pagination */
-    .pagination .page-item.active .page-link {
-        background-color: var(--primary-blue);
-        border-color: var(--primary-blue);
-        color: var(--text-dark);
+    /* ปุ่มกลับรีเซ็ตรหัสผ่าน */
+    .btn-reset-custom {
+        /* บังคับค่าขอบให้ชัดเจน */
+        border: 2px solid #EB7D2F !important; 
+        color: #EB7D2F !important;
+        background-color: white !important; /* ใส่พื้นหลังขาวเพื่อให้ขอบเด่น */
+        border-radius: 12px !important;
+        padding: 4px 12px !important;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none !important;
+        display: inline-block;
     }
+    /* เมื่อเมาส์ชี้ (Hover) */
+    .btn-reset-custom:hover {
+        background-color: #EB7D2F !important; /* เปลี่ยนพื้นหลังเป็นสีส้ม */
+        color: #ffffff !important;           /* ตัวอักษรสีขาว */
+        box-shadow: 0 4px 8px rgba(235, 125, 47, 0.3); /* แถม: เพิ่มเงาส้มอ่อนๆ ตอนชี้ */
+    }
+
+    /* <<<<<<<<<< side bar >>>>>>>>>> */
+
+    /* ปุ่มกลับไปหน้าบ้าน */
+    .btn-home-custom {
+        background-color: #305a5d !important; /* เปลี่ยนพื้นหลังเป็นสีส้ม */
+        color: #ffffff !important;           /* ตัวอักษรสีขาว */
+        box-shadow: 0 4px 8px rgba(235, 125, 47, 0.3); /* แถม: เพิ่มเงาส้มอ่อนๆ ตอนชี้ */
+    }
+    /* เมื่อเมาส์ชี้ (Hover) */
+    .btn-home-custom:hover {
+        /* บังคับค่าขอบให้ชัดเจน */
+        border: 2px solid #305a5d !important; 
+        color: #305a5d !important;
+        background-color: white !important; /* ใส่พื้นหลังขาวเพื่อให้ขอบเด่น */
+        /* border-radius: 12px !important; */
+        padding: 4px 12px !important;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none !important;
+        display: inline-block;
+    }
+
+    /* ปุ่มออกจากระบบ */
+    .btn-logout-custom {
+        background-color: #ff431e !important; /* เปลี่ยนพื้นหลังเป็นสีส้ม */
+        color: #ffffff !important;           /* ตัวอักษรสีขาว */
+        box-shadow: 0 4px 8px rgba(235, 125, 47, 0.3); /* แถม: เพิ่มเงาส้มอ่อนๆ ตอนชี้ */
+    }
+    /* เมื่อเมาส์ชี้ (Hover) */
+    .btn-logout-custom:hover {
+        /* บังคับค่าขอบให้ชัดเจน */
+        border: 2px solid #ff431e !important; 
+        color: #ff431e !important;
+        background-color: white !important; /* ใส่พื้นหลังขาวเพื่อให้ขอบเด่น */
+        /* border-radius: 12px !important; */
+        padding: 4px 12px !important;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none !important;
+        display: inline-block;
+    }
+
+    /* ปุ่มธรรมดาใน side bar */
+    .btn-side_bar-custom {
+        background-color: #ffffff !important; /* เปลี่ยนพื้นหลังเป็นสีส้ม */
+        color: var(--text-dark) !important;           /* ตัวอักษรสีขาว */
+        box-shadow: 0 4px 8px rgba(235, 125, 47, 0.3); /* แถม: เพิ่มเงาส้มอ่อนๆ ตอนชี้ */
+    }
+    /* เมื่อเมาส์ชี้ (Hover) */
+    .btn-side_bar-custom:hover {
+        /* บังคับค่าขอบให้ชัดเจน */
+        /* border: 2px solid #ff431e !important;  */
+        color: #EB7D2F !important;
+        background-color: white !important; /* ใส่พื้นหลังขาวเพื่อให้ขอบเด่น */
+        /* border-radius: 12px !important;
+        padding: 4px 12px !important; */
+        /* font-weight: 500;
+        transition: all 0.3s ease-in-out; */
+        /* text-decoration: none !important; */
+        display: inline-block;
+    }
+
 </style>

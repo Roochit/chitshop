@@ -47,7 +47,8 @@
             <td>{{ $row->member_username }}  </td>
             <td>{{ $row->role }}  </td>
             <td>
-                    <a href="/member/reset/{{ $row->member_id }}" class="btn btn-warning btn-sm">Reset</a>
+                    {{-- <a href="/member/reset/{{ $row->member_id }}" class="btn btn-sm" style="border: 2px solid #EB7D2F;color:  EB7D2F">Reset</a> --}}
+                    <a href="/member/reset/{{ $row->member_id }}" class="btn btn-sm btn-reset-custom" > Reset </a>
             </td>
             <td>
                     <a href="/member/{{ $row->member_id }}" class="btn btn-warning btn-sm">edit</a>
@@ -107,6 +108,7 @@ function deleteConfirm(id) {
             document.getElementById('delete-form-' + id).submit();
         }
     });
+
 }
 </script>
 
