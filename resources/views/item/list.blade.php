@@ -1,9 +1,17 @@
 @extends('home')
 
 @section('content')
-    <h3> :: Product Managements ::
+    {{-- <h3> :: Product Managements ::
         <a href="/item/adding" class="btn btn-primary btn-sm"> Add Product </a>
-    </h3>
+    </h3> --}}
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="m-0" style="font-weight: bold;">Product Data</h3>
+        {{-- ปุ่ม '+' จัดไว้ทางขวา --}}
+        <a href="/item/adding" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Add Product
+        </a>
+    </div>
 
     <table class="table table-bordered table-striped table-hover">
         <thead>
