@@ -11,12 +11,19 @@
 
 @section('content')
 
-<div class="container mt-4">
+{{-- <div class="container mt-4">
     <div class="row">
-    <div class="col-md-10">
-<h3> Member Data  
+    <div class="col-md-10"> --}}
+{{-- <h3> Member Data  
 <a  href="/member/adding" class="btn btn-primary btn-sm mb-2"> + member </a>
-</h3>
+</h3> --}}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="m-0" style="font-weight: bold;">Member Data</h3>
+        {{-- ปุ่ม '+' จัดไว้ทางขวา --}}
+        <a href="/member/adding" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Add Member
+        </a>
+    </div>
 
 
 <table class="table table-bordered table-striped table-hover">
@@ -65,9 +72,9 @@
         {{ $memberList->links() }}
     </div>
     
+{{-- </div>
 </div>
-</div>
-</div>
+</div> --}}
 {{-- devbanban.com  --}}
 
 @endsection
