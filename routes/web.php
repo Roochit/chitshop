@@ -4,13 +4,22 @@ use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\HomeController; 
+use App\Http\Controllers\AuthController; 
+
+
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
+//หน้าเเรก
+Route::get('/', [AuthController::class, 'login']);
+
 //home page
-Route::get('/', [TestController::class, 'index']);
+// Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
+Route::get('/detail/{id}',  [HomeController::class, 'detail']);
 
 //test crud
 Route::get('/test', [TestController::class, 'index']);

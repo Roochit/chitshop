@@ -13,7 +13,7 @@ class ItemModel extends Model
                             'price', 
                             'review',
                             'image_path' , 
-                            'dateCreate'];
+                            'DateCreate'];
     public $incrementing = true; // ถ้า primary key เป็นตัวเลข auto increment
     public $timestamps = false; // ใส่บรรทัดนี้ถ้าไม่มี created_at, updated_at
 }

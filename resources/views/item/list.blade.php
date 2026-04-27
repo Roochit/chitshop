@@ -45,8 +45,8 @@
                     <b>Name: {{ $row->item_name }}</b> <br>
                     Detail: {{ Str::limit($row->description, 120, '...') }}
                 </td>
-                <td align="right">฿{{ number_format($row->price, 2) }}</td>
-                                <td align="center">
+                <td align="center">฿{{ number_format($row->price, 2) }}</td>
+                <td align="center">
                     @if($row->review)
                         <span class="text-warning">
                             @for($i = 1; $i <= 5; $i++)

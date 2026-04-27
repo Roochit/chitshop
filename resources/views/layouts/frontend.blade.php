@@ -3,75 +3,85 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chit Shop</title>
+    <title>Laravel 12 Basic CRUD by devbanban.com 2025</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     @yield('css_before')
   </head>
   <body>
 
+    <!-- start navbar  --> 
+<div class="container">
+    <div class="row">
+    <div class="col-12 col-sm-12 col-md-12">
+<nav class="navbar navbar-expand-lg" style="background-color: #509196; color: #ffffff; ">
     <div class="container">
-      <div class="row">
-          <div class="col">
-              <div class="alert text-center" style="background-color: #509196; color: #ffffff; " role="alert">
-                <h4>Admin Office</h4>
-              </div>
-          </div>
-          {{-- <div class="text-center p-4 mb-4" style="background-color: #59C9FA; border-radius: 15px; color: #333; font-weight: bold;">
-            Admin Office
-          </div> --}}
-      </div>
-    </div>
+      <a class="navbar-brand text-white" href="/home">MyShop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="/home">Home</a>
+          </li>
+          {{-- <li class="nav-item">
+            <a class="nav-link text-white" href="https://devbanban.com/?p=4425">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="https://devbanban.com/?p=4425">Link</a>
+          </li> --}}
 
-    @yield('header')
+           {{-- <li class="nav-item">
+            <a class="nav-link text-white" href="/login">Login</a>
+          </li> --}}
 
-    <div class="container">
-      <div class="row">
 
-        <div class="col-md-3">
-          <div class="list-group">
-            <a href="/home" class="list-group-item list-group-item-action btn-home-custom" target="_blank" aria-current="true">
-              Home
-            </a>
           
-            <a href="/test" class="list-group-item list-group-item-action btn-side_bar-custom"> - TestCRUD </a>
-
-            <a href="/member" class="list-group-item list-group-item-action btn-side_bar-custom"> - Member </a>
-
-            <a href="/item" class="list-group-item list-group-item-action btn-side_bar-custom"> - Product </a>
-           
-            
-            
-            
-            
-            
-            <a href="/" class="list-group-item list-group-item-action btn-logout-custom"> 
-                Log Out 
-            </a>
-          </div>
-          @yield('sidebarMenu')
-        </div>
-
-        <div class="col-md-9">
-          @yield('content')
-        </div>
-
+          {{-- <li class="nav-item">
+            <a class="nav-link text-white" href="/member" target="_blank">BackOffice</a>
+          </li> --}}
+          
+        </ul>
+        <form action="/search" method="get" class="d-flex" role="search">
+          <input class="form-control me-2" type="text" name="keyword" placeholder="Search Product Name" aria-label="Search" required value="{{ $keyword ?? ''}}">
+          <button class="btn btn-danger" type="submit">Search </button>
+        </form>
       </div>
     </div>
+  </nav>
+    </div>
+    </div>
+</div>
+  <!-- end navbar  -->
 
-    {{-- <footer class="mt-5 mb-2">
-      <p class="text-center">by devbanban.com @2025</p>
-    </footer> --}}
+  <div class="container mt-2 mb-2">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12">
+        <div class="alert alert-primary" role="alert">
+          ::show product::
+        </div>
+      </div>
+    </div>
+  </div>
+  @yield('navbar')
+
+
+  <div class="container mt-2">
+    <div class="row">
+        @yield('showProduct')
+    </div>
+  </div>
+
+
+    <footer class="mt-5 mb-2">
+      {{-- <p class="text-center">by devbanban.com @2025</p> --}}
+    </footer>
     
     @yield('footer')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
     @yield('js_before')
-
-    
-
-    {{-- >>>>>>> ตรงนี้สำคัญ <<<<<<< --}}
-    @include('sweetalert::alert')
 
   </body>
 </html>
@@ -145,7 +155,7 @@
     .btn-primary {
         background-color: #2FDBEB; /* สีเหลือง */
         color: #000000 !important;           /* ตัวอักษรสีขาว */
-        box-shadow: 0 4px 8px rgba(235, 125, 47, 0.3); /* แถม: เพิ่มเงาส้มอ่อนๆ ตอนชี้ */
+        box-shadow: 0 4px 8px #509196; 
         border: none;
         /* background-color: var(--primary-blue);
         border: none;
@@ -161,6 +171,7 @@
         font-weight: 500;
         transition: all 0.3s ease-in-out;
         text-decoration: none !important;
+        box-shadow: 0 4px 8px rgba(235, 125, 47, 0.3); /* แถม: เพิ่มเงาส้มอ่อนๆ ตอนชี้ */
         display: inline-block;;
     }
 
