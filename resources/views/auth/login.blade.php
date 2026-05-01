@@ -12,7 +12,7 @@
             <h3> :: form login :: </h3>
 
 
-<form action="" method="post">
+<form action="/" method="post">
 @csrf
 
 
@@ -50,7 +50,7 @@
     <div class="col-sm-5">
        
        <button type="submit" class="btn btn-primary"> Insert  </button> 
-       <a href="/member" class="btn btn-danger">cancel</a>
+       <a href="/" class="btn btn-danger">cancel</a>
     </div>
 </div>
 

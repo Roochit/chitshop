@@ -1,4 +1,4 @@
-@extends('home')
+@extends('frontend')
 
 @section('css_before')
 @endsection
@@ -9,7 +9,7 @@
 @section('sidebarMenu')
 @endsection
 
-@section('content')
+@section('showProduct')
 
     <div class="text-center">
         <h1>ไม่พบหน้าที่คุณต้องการ</h1>

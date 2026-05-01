@@ -13,6 +13,7 @@ use Illuminate\Pagination\Paginator;
 class MemberController extends Controller
 {
 
+
 public function index()
 {
     try {

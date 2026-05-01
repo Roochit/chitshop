@@ -43,10 +43,21 @@
             
             
             
-            
-            <a href="/" class="list-group-item list-group-item-action btn-logout-custom"> 
+            {{-- ปุ่มออกจากระบบใน Sidebar --}}
+            {{-- <a href="{{ route('logout') }}" class="list-group-item list-group-item-action btn-logout-custom"> 
                 Log Out 
-            </a>
+            </a> --}}
+
+            <div class="nav-item">
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="nav-link btn-logout-custom text-white w-100 border-0" 
+                            style="border-radius: 8px; padding: 10px; margin-top: 10px;">
+                        <i class="fas fa-sign-out-alt"></i> Log Out 
+                    </button>
+                </form>
+            </div>
+            
           </div>
           @yield('sidebarMenu')
         </div>

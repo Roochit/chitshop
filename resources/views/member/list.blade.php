@@ -40,6 +40,9 @@
     </thead>
 
     <tbody>
+        {{-- <div class="admin-header text-center">
+            Admin Office (สวัสดีคุณ: {{ Auth::user()->member_name }})
+        </div> --}}
         @foreach($memberList as $row)
         <tr>
             <td align="center"> {{ $loop->iteration }}.  <!--เรียงลำดับใหม่  --></td>

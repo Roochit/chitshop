@@ -61,11 +61,17 @@ return [
     |
     */
 
+    // 'providers' => [
+    //     'users' => [
+    //         'driver' => 'eloquent',
+    //         'model' => env('AUTH_MODEL', User::class),
+    //     ],
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', User::class),
-        ],
+    'users' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\MemberModel::class, // เปลี่ยนให้ชี้ไปที่ Model ของคุณ
+    ],
+
 
         // 'users' => [
         //     'driver' => 'database',
