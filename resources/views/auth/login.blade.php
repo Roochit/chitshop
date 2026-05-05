@@ -16,7 +16,7 @@
 @csrf
 
 
-<div class="form-group row mb-2">
+<div class="form-group row mt-3 mb-2">
     <div class="col-sm-2"></div>
     <label class="col-sm-3"> User Name </label>
     <div class="col-sm-5">
@@ -44,10 +44,15 @@
     <div class="col-sm-2"></div>
 </div>
 
+<div class="row mb-2">
+    <div class="col mt-3">
+        <a href="/create_account" > สมัครสมาชิค </a>
+    </div>
+</div>
+
 
 <div class="form-group row mt-3 mb-3">
-    <label class="col-sm-3">  </label>
-    <div class="col-sm-5">
+    <div class="col-sm-12">
        
        <button type="submit" class="btn btn-primary"> Insert  </button> 
        <a href="/" class="btn btn-danger">cancel</a>

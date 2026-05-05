@@ -36,16 +36,30 @@
           </li> --}}
 
 
-          
-          {{-- <li class="nav-item">
-            <a class="nav-link text-white" href="/member" target="_blank">BackOffice</a>
-          </li> --}}
+          @if(Auth::user()->role === 'admin')
+          <div class="admin-header">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="/member" target="_blank">BackOffice</a>
+            </li>
+          </div>
+          @endif
           
         </ul>
         <form action="/search" method="get" class="d-flex" role="search">
           <input class="form-control me-2" type="text" name="keyword" placeholder="Search Product Name" aria-label="Search" required value="{{ $keyword ?? ''}}">
           <button class="btn btn-danger" type="submit">Search </button>
         </form>
+
+          {{-- <div class="nav-item"> --}}
+              <form action="{{ route('logout') }}" method="POST">
+                  @csrf
+                  <button class="btn btn-logout-custom ms-2" type="submit">Search </button>
+                  {{-- <button type="submit" class="nav-link btn-logout-custom text-white m-2" 
+                            style="border-radius: 5px; padding: 10px; margin-top: 10px;">
+                      <i class="fas fa-sign-out-alt"></i> Log Out 
+                  </button> --}}
+              </form>
+          {{-- </div> --}}
       </div>
     </div>
   </nav>

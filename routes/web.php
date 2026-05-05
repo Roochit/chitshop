@@ -19,6 +19,9 @@ use App\Http\Controllers\AuthController;
 Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::post('/', [AuthController::class, 'checkLogin']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/create_account', [AuthController::class, 'showRegistrationForm']);
+Route::post('/create_account', [AuthController::class, 'create']);
 // ตัวอย่างการใช้ Middleware แยกกลุ่ม
 // ป้องกันการเข้าถึงหน้าอื่นถ้ายังไม่ได้ Login
 // Route::middleware(['auth'])->group(function () {
@@ -31,7 +34,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 //     //Route::get('/member', [MemberController::class, 'index']);
 //     Route::get('/test', [TestController::class, 'index']);
 //     // ... route อื่นๆ
-// });
+// })
 // --- กลุ่มที่ต้องล็อกอินก่อน (User ทั่วไปเข้าได้) ---
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index']);
