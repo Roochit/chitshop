@@ -53,7 +53,7 @@
           {{-- <div class="nav-item"> --}}
               <form action="{{ route('logout') }}" method="POST">
                   @csrf
-                  <button class="btn btn-logout-custom ms-2" type="submit">Search </button>
+                  <button class="btn btn-logout-custom ms-2" type="submit"> Log Out </button>
                   {{-- <button type="submit" class="nav-link btn-logout-custom text-white m-2" 
                             style="border-radius: 5px; padding: 10px; margin-top: 10px;">
                       <i class="fas fa-sign-out-alt"></i> Log Out 
