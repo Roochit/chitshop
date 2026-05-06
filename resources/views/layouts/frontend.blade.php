@@ -52,6 +52,13 @@
           <li class="nav-item">
             <a class="nav-link active text-white" aria-current="page" href="/cart">ตะกร้าของฉัน</a>
           </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="/">ประวัติการสั่งซื้อ</a>
+          </li>
+
+
           
         </ul>
         <form action="/search" method="get" class="d-flex" role="search">

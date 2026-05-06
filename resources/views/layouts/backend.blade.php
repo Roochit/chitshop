@@ -38,6 +38,8 @@
             <a href="/member" class="list-group-item list-group-item-action btn-side_bar-custom"> - Member </a>
 
             <a href="/item" class="list-group-item list-group-item-action btn-side_bar-custom"> - Product </a>
+
+            <a href="/adminIndex" class="list-group-item list-group-item-action btn-side_bar-custom"> - Order </a>
            
             
             

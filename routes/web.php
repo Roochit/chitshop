@@ -7,6 +7,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\HomeController; 
 use App\Http\Controllers\AuthController; 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
 // --- หน้าสาธารณะ (ไม่ต้องล็อกอิน) ---
 Route::get('/', [AuthController::class, 'login'])->name('login');
@@ -27,6 +28,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cart/delete/{id}', [CartController::class, 'delete']);
     // เพิ่ม Route สำหรับอัปเดตจำนวนสินค้าในตะกร้า (ถ้าต้องการ)
     Route::post('/cart/update', [CartController::class, 'updateQty']);
+
+    Route::get('/checkout', [OrderController::class, 'checkout']);
 });
 
 // --- กลุ่มที่ต้องเป็น Admin เท่านั้น (Admin Backend) ---
@@ -57,4 +60,8 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::get('/test/{id}', [TestController::class, 'edit']);
     Route::put('/test/{id}', [TestController::class, 'update']);
     Route::delete('/test/remove/{id}', [TestController::class, 'remove']);
+
+    // orders Management
+    Route::get('/adminIndex', [OrderController::class, 'adminIndex']);
+    Route::get('/admin/orders/{id}', [OrderController::class, 'show']);
 });
