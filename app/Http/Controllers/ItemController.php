@@ -69,7 +69,7 @@ class ItemController extends Controller
                 'review'      => $request->review ?? 0,
                 'image_path'  => $imagePath,
             ]);
-
+            $this->recordLog('Add Product', 'เพิ่มสินค้าใหม่: ' . $request->item_name);
             Alert::success('สำเร็จ', 'เพิ่มสินค้าใหม่เรียบร้อยแล้ว');
             return redirect('/item');
 

@@ -41,7 +41,7 @@
 
             <a href="/adminIndex" class="list-group-item list-group-item-action btn-side_bar-custom"> - Order </a>
            
-            
+            <a href="/admin/logs" class="list-group-item list-group-item-action btn-side_bar-custom"> - Logs </a>
             
             
             

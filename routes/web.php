@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController; 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AdminController;
 
 // --- หน้าสาธารณะ (ไม่ต้องล็อกอิน) ---
 Route::get('/', [AuthController::class, 'login'])->name('login');
@@ -30,6 +31,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/cart/update', [CartController::class, 'updateQty']);
 
     Route::get('/checkout', [OrderController::class, 'checkout']);
+    Route::get('/my-orders', [OrderController::class, 'myOrders']);
+    Route::get('/my-orders/{id}', [OrderController::class, 'myOrderDetail']);
 });
 
 // --- กลุ่มที่ต้องเป็น Admin เท่านั้น (Admin Backend) ---
@@ -64,4 +67,7 @@ Route::middleware(['auth', 'is_admin'])->group(function () {
     // orders Management
     Route::get('/adminIndex', [OrderController::class, 'adminIndex']);
     Route::get('/admin/orders/{id}', [OrderController::class, 'show']);
+
+    // logs Management
+    Route::get('/admin/logs', [AdminController::class, 'adminLogs']);
 });

@@ -55,7 +55,7 @@
 
 
           <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href="/">ประวัติการสั่งซื้อ</a>
+            <a class="nav-link active text-white" aria-current="page" href="/my-orders">ประวัติการสั่งซื้อ</a>
           </li>
 
 

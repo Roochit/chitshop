@@ -73,6 +73,7 @@ class OrderController extends Controller
             // ถ้าทุกอย่างโอเค ยืนยันการบันทึก
             DB::commit();
             
+            $this->recordLog('Create Order', 'สร้างใบสั่งซื้อเลขที่ ' . $order->order_number);
             Alert::success('สั่งซื้อสำเร็จ', 'ขอบคุณที่ใช้บริการ Chit Shop ครับ');
             return redirect('/home');
 
@@ -105,5 +106,35 @@ class OrderController extends Controller
                     ->get();
 
         return view('admin.orders.show', compact('order', 'details'));
+    }
+
+    // ดูรายการคำสั่งซื้อทั้งหมดของตัวเอง
+    public function myOrders()
+    {
+        $member_id = Auth::user()->member_id;
+        
+        $orders = OrderModel::where('member_id', $member_id)
+                    ->orderBy('order_id', 'desc')
+                    ->get();
+
+        return view('frontend.orders.index', compact('orders'));
+    }
+
+    // ดูรายละเอียดสินค้าข้างในออเดอร์นั้นๆ
+    public function myOrderDetail($id)
+    {
+        $member_id = Auth::user()->member_id;
+
+        // ตรวจสอบว่าเป็นออเดอร์ของตัวเองจริงๆ เพื่อความปลอดภัย
+        $order = OrderModel::where('order_id', $id)
+                    ->where('member_id', $member_id)
+                    ->firstOrFail();
+
+        $details = OrderDetailModel::join('tbl_items', 'tbl_order_details.product_id', '=', 'tbl_items.item_id')
+                    ->select('tbl_order_details.*', 'tbl_items.item_name', 'tbl_items.image_path')
+                    ->where('order_id', $id)
+                    ->get();
+
+        return view('frontend.orders.show', compact('order', 'details'));
     }
 }

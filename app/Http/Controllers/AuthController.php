@@ -28,8 +28,10 @@ class AuthController extends Controller
 
             // แยกเส้นทางตาม Role
             if ($user->role === 'admin') {
+                $this->recordLog('Login', 'ผู้ใช้เข้าสู่ระบบ');
                 return redirect()->intended('/item'); // ไปหลังบ้าน
             }
+            $this->recordLog('Login', 'ผู้ใช้เข้าสู่ระบบ');
             return redirect()->intended('/home'); // ไปหน้าแรกผู้ใช้
         }
 
@@ -38,6 +40,7 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        $this->recordLog('logout', 'ผู้ใช้ออกจากสู่ระบบ');
         Auth::logout(); // ลบสถานะการล็อกอินในระบบ
 
         $request->session()->invalidate(); // ล้างข้อมูล Session ทั้งหมด
