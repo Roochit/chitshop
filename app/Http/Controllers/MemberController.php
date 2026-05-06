@@ -216,11 +216,11 @@ public function index()
             'confirm_password.min' => 'กรอกข้อมูลขั้นต่ำ :min ตัวอักษร',
         ];
 
-        //rule
         $validator = Validator::make($request->all(), [
-            'new_password' => 'required','min:6','same:confirm_password',
-            'confirm_password' => 'required','min:6',
-    ], $messages);
+            // ใช้เครื่องหมาย | คั่นกฎแต่ละข้อ หรือใส่เป็น Array []
+            'new_password' => 'required|min:6|same:confirm_password',
+            'confirm_password' => 'required|min:6',
+        ], $messages);
 
     //check 
         if ($validator->fails()) {
@@ -241,7 +241,7 @@ public function index()
             //return response()->json(['error' => $e->getMessage()], 500); //สำหรับ debug
             return view('errors.404');
         }
-    } //fun update 
+    } //fun resetPassword 
 
 
     public function remove($member_id)
