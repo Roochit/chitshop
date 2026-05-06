@@ -72,7 +72,7 @@ class OrderController extends Controller
 
             // ถ้าทุกอย่างโอเค ยืนยันการบันทึก
             DB::commit();
-            
+
             $this->recordLog('Create Order', 'สร้างใบสั่งซื้อเลขที่ ' . $order->order_number);
             Alert::success('สั่งซื้อสำเร็จ', 'ขอบคุณที่ใช้บริการ Chit Shop ครับ');
             return redirect('/home');
@@ -84,7 +84,7 @@ class OrderController extends Controller
         }
     }
 
-// ดูรายการทั้งหมด
+    // ดูรายการทั้งหมด
     public function adminIndex() {
         $orders = OrderModel::join('tbl_member', 'tbl_orders.member_id', '=', 'tbl_member.member_id')
                     ->select('tbl_orders.*', 'tbl_member.member_name as customer_name') // แก้ชื่อคอลัมน์ให้ตรงกับ DB ของคุณ
