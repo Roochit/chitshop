@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 06, 2026 at 08:48 AM
+-- Generation Time: May 06, 2026 at 09:56 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -191,7 +191,9 @@ INSERT INTO `tbl_items` (`item_id`, `item_name`, `description`, `price`, `review
 (10, 'แมวส้มในตำนาน', 'แมวส้มในตำนาน มีเรื่องเล่าว่าเเมวตัวนี้เคยช่วยท่านชัชชาติสู้กับไดโนเสาร์\r\nจนสามารถทำให้มันสูญพันธ์ได้', 5000000.00, 5, 'uploads/product/BXdqnRd5vyAYxJWuOFXbO4v3uOKSpyW3eq60KKSO.jpg', '2026-05-05 14:20:56'),
 (11, 'สีสันที่หายไป', 'เป็นเรื่องราวที่เมื่อกฎของโลกไม่สามารถแสดงให้เราเห็นบางสิ่งได้ สิ่งนั้นจะถูกย้อมเป็นสีชมพูเหมือนช่วงเวลาที่คุณตกหลุ่มรักใครเเล้วสิ่งต่างนั้นช่างดูสวยงามแต่เบื่องหลังเธอคนนั้นอาจทำความสะอาดห้องไม่เป็นเลยก็ได้ 5555', 300000.00, 2, 'uploads/product/AEjowCmQjAuYhIvrrsfyxJKMdzymOVwg2sEWclWI.jpg', '2026-05-05 14:24:35'),
 (12, 'ชายขายเก้าอี้', 'ชายผู้นี้คือยอดนักขาย ไม่มีใครต้านทานเขาได้\r\nเหลาพนังงานหน้าโต๊ะคอมทั้งหลายจงสันเสรินเข้า \r\nชายผู้จะมาปลดปล่อยหลังของพวกเราจากความทุกข์ทรมาน', 5000000.00, 4, 'uploads/product/MlQEZKvwW3SggwiBCpzAqP3LcwW5aZYvVEq6Ozir.jpg', '2026-05-05 14:29:03'),
-(13, 'minimal Map of TNI', 'แผนที่ที่ทำให้คุณอาจไม่หลงทางก็ได้', 1000000.00, 5, 'uploads/product/WoiB6mydWVTCv3Y2tQRe4J7RCUWxEmXkJdsUPbWW.png', '2026-05-05 14:31:37');
+(13, 'minimal Map of TNI', 'แผนที่ที่ทำให้คุณอาจไม่หลงทางก็ได้', 1000000.00, 5, 'uploads/product/WoiB6mydWVTCv3Y2tQRe4J7RCUWxEmXkJdsUPbWW.png', '2026-05-05 14:31:37'),
+(16, 'test02 10', 'test02 test02 test02 test02 test02 v', 199999.97, 3, 'uploads/product/1RhSVio5Au3kPSBl3nCnNxve2f6ZwzD5mcQDxQ3M.png', '2026-05-06 07:41:53'),
+(17, 'test test test  test test', 'test test test  test test', 1000.00, 2, 'uploads/product/SY9Y97Q09uukwFy4ygMDvveeAtpIrv6xHgs2HFsZ.png', '2026-05-06 07:44:59');
 
 -- --------------------------------------------------------
 
@@ -216,7 +218,35 @@ CREATE TABLE `tbl_logs` (
 INSERT INTO `tbl_logs` (`log_id`, `user_id`, `action`, `detail`, `ip_address`, `created_at`, `updated_at`) VALUES
 (1, 3, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 06:44:39', '2026-05-06 06:44:39'),
 (2, 3, 'logout', 'ผู้ใช้ออกจากสู่ระบบ', '127.0.0.1', '2026-05-06 06:45:50', '2026-05-06 06:45:50'),
-(3, 3, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 06:46:13', '2026-05-06 06:46:13');
+(3, 3, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 06:46:13', '2026-05-06 06:46:13'),
+(4, 3, 'logout', 'ผู้ใช้ออกจากสู่ระบบ', '127.0.0.1', '2026-05-06 06:56:39', '2026-05-06 06:56:39'),
+(5, 3, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 06:58:57', '2026-05-06 06:58:57'),
+(6, 3, 'logout', 'ผู้ใช้ออกจากสู่ระบบ', '127.0.0.1', '2026-05-06 06:59:14', '2026-05-06 06:59:14'),
+(7, 4, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 06:59:25', '2026-05-06 06:59:25'),
+(8, 4, 'Create Order', 'สร้างใบสั่งซื้อเลขที่ CHIT-20260506-69FAE7375D0B2', '127.0.0.1', '2026-05-06 07:01:11', '2026-05-06 07:01:11'),
+(9, 4, 'logout', 'ผู้ใช้ออกจากสู่ระบบ', '127.0.0.1', '2026-05-06 07:01:52', '2026-05-06 07:01:52'),
+(10, 3, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 07:02:05', '2026-05-06 07:02:05'),
+(11, 3, 'Add Product', 'เพิ่มสินค้าใหม่: 01tester', '127.0.0.1', '2026-05-06 07:05:37', '2026-05-06 07:05:37'),
+(12, 3, 'logout', 'ผู้ใช้ออกจากสู่ระบบ', '127.0.0.1', '2026-05-06 07:05:55', '2026-05-06 07:05:55'),
+(13, 3, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 07:13:40', '2026-05-06 07:13:40'),
+(14, 3, 'Add Product', 'เพิ่มสินค้าใหม่: 10testet', '127.0.0.1', '2026-05-06 07:16:01', '2026-05-06 07:16:01'),
+(15, 3, 'logout', 'ผู้ใช้ออกจากสู่ระบบ', '127.0.0.1', '2026-05-06 07:18:55', '2026-05-06 07:18:55'),
+(16, 19, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 07:19:50', '2026-05-06 07:19:50'),
+(17, 19, 'Create Order', 'สร้างใบสั่งซื้อเลขที่ CHIT-20260506-69FAEC414AD5A', '127.0.0.1', '2026-05-06 07:22:41', '2026-05-06 07:22:41'),
+(18, 19, 'logout', 'ผู้ใช้ออกจากสู่ระบบ', '127.0.0.1', '2026-05-06 07:23:03', '2026-05-06 07:23:03'),
+(19, 3, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 07:23:16', '2026-05-06 07:23:16'),
+(20, 3, 'logout', 'ผู้ใช้ออกจากสู่ระบบ', '127.0.0.1', '2026-05-06 07:24:20', '2026-05-06 07:24:20'),
+(21, 3, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 07:39:38', '2026-05-06 07:39:38'),
+(22, 3, 'Add Product', 'เพิ่มสินค้าใหม่: test02', '127.0.0.1', '2026-05-06 07:41:53', '2026-05-06 07:41:53'),
+(23, 3, 'logout', 'ผู้ใช้ออกจากสู่ระบบ', '127.0.0.1', '2026-05-06 07:42:30', '2026-05-06 07:42:30'),
+(24, 3, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 07:43:47', '2026-05-06 07:43:47'),
+(25, 3, 'Add Product', 'เพิ่มสินค้าใหม่: test test test  test test', '127.0.0.1', '2026-05-06 07:44:59', '2026-05-06 07:44:59'),
+(26, 3, 'logout', 'ผู้ใช้ออกจากสู่ระบบ', '127.0.0.1', '2026-05-06 07:48:04', '2026-05-06 07:48:04'),
+(27, 4, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 07:48:16', '2026-05-06 07:48:16'),
+(28, 4, 'Create Order', 'สร้างใบสั่งซื้อเลขที่ CHIT-20260506-69FAF2A502430', '127.0.0.1', '2026-05-06 07:49:57', '2026-05-06 07:49:57'),
+(29, 4, 'logout', 'ผู้ใช้ออกจากสู่ระบบ', '127.0.0.1', '2026-05-06 07:50:31', '2026-05-06 07:50:31'),
+(30, 3, 'Login', 'ผู้ใช้เข้าสู่ระบบ', '127.0.0.1', '2026-05-06 07:50:41', '2026-05-06 07:50:41'),
+(31, 3, 'logout', 'ผู้ใช้ออกจากสู่ระบบ', '127.0.0.1', '2026-05-06 07:51:02', '2026-05-06 07:51:02');
 
 -- --------------------------------------------------------
 
@@ -244,7 +274,7 @@ INSERT INTO `tbl_member` (`member_id`, `member_name`, `member_username`, `passwo
 (5, 'DevBanBan', 'DevBanBan@test.com', '$2y$12$yQ0sJbEO0jWvikuJDf883ON9/UaJURZ.RjSmEdGgWJU0FKeJgV2A6', 'admin', '2026-04-26 05:15:17', '2026-04-26 05:15:17'),
 (13, '111111', '111111@111111', '$2y$12$qH83QBU916/R//qHO4gVi.82XcsWuYh.91AYru5XgdfWinbjA6Idy', 'admin', '2026-05-05 13:05:43', '2026-05-06 02:56:45'),
 (14, '222222', '222222@222222', '$2y$12$.WwFGZd6a/aavnWpgE7/OOBcD2ThksTwyYrTDKy3SxKRSUbyvPZ3q', 'user', '2026-05-05 13:06:46', '2026-05-06 02:56:38'),
-(17, 'roochit admin', 'roochit_admin@test.com', '$2y$12$xdB2R1vuch6A4B.HuztEQuLWPyj.bBxnd7zawzm4ejl12mdcp4hgu', 'admin', '2026-05-05 15:00:05', '2026-05-05 15:00:05');
+(20, 'roochit', 'roochit@test.com', '$2y$12$O.jxxSHlqxl4T7zfmurQHuuwCCaYTjMK.m7M1VCdXWoYOe9aYURlm', 'admin', '2026-05-06 07:45:58', '2026-05-06 07:46:30');
 
 -- --------------------------------------------------------
 
@@ -267,7 +297,10 @@ CREATE TABLE `tbl_orders` (
 --
 
 INSERT INTO `tbl_orders` (`order_id`, `member_id`, `total_price`, `status`, `created_at`, `order_number`, `updated_at`) VALUES
-(3, 4, 5006000.00, 'pending', '2026-05-06 05:03:01', 'CHIT-20260506-69FACB8551415', '2026-05-06 05:03:01');
+(3, 4, 5006000.00, 'pending', '2026-05-06 05:03:01', 'CHIT-20260506-69FACB8551415', '2026-05-06 05:03:01'),
+(4, 4, 5000030.00, 'pending', '2026-05-06 07:01:11', 'CHIT-20260506-69FAE7375D0B2', '2026-05-06 07:01:11'),
+(5, 19, 8070.00, 'pending', '2026-05-06 07:22:41', 'CHIT-20260506-69FAEC414AD5A', '2026-05-06 07:22:41'),
+(6, 4, 6006030.00, 'pending', '2026-05-06 07:49:57', 'CHIT-20260506-69FAF2A502430', '2026-05-06 07:49:57');
 
 -- --------------------------------------------------------
 
@@ -289,7 +322,17 @@ CREATE TABLE `tbl_order_details` (
 
 INSERT INTO `tbl_order_details` (`detail_id`, `order_id`, `product_id`, `qty`, `price`) VALUES
 (1, 3, 10, 1, 5000000.00),
-(2, 3, 9, 1, 6000.00);
+(2, 3, 9, 1, 6000.00),
+(3, 4, 10, 1, 5000000.00),
+(4, 4, 7, 1, 30.00),
+(5, 5, 8, 1, 20.00),
+(6, 5, 9, 1, 6000.00),
+(7, 5, 15, 1, 2000.00),
+(8, 5, 6, 1, 50.00),
+(9, 6, 9, 1, 6000.00),
+(10, 6, 13, 1, 1000000.00),
+(11, 6, 7, 1, 30.00),
+(12, 6, 10, 1, 5000000.00);
 
 -- --------------------------------------------------------
 
@@ -463,37 +506,37 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tbl_carts`
 --
 ALTER TABLE `tbl_carts`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_items`
 --
 ALTER TABLE `tbl_items`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbl_logs`
 --
 ALTER TABLE `tbl_logs`
-  MODIFY `log_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `log_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tbl_member`
 --
 ALTER TABLE `tbl_member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_details`
 --
 ALTER TABLE `tbl_order_details`
-  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_test`
