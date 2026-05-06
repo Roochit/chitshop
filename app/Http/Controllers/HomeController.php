@@ -33,7 +33,10 @@ class HomeController extends Controller
             $image_path = $product->image_path;
             $DateCreate = $product->DateCreate;
 
-            return view('home.product_detail', compact('id','item_name','description','price','review','image_path','DateCreate'));
+
+            $item = ItemModel::find($id); // ตรวจสอบว่าบรรทัดนี้ใช้ชื่อตัวแปรว่าอะไร
+
+            return view('home.product_detail', compact('id','item_name','description','price','review','image_path','DateCreate','item'));
 
 
         } catch (\Exception $e) {

@@ -35,14 +35,23 @@
             <a class="nav-link text-white" href="/login">Login</a>
           </li> --}}
 
+          @auth
+            @if(Auth::user()->role === 'admin')
+            <div class="admin-header">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/member" target="_blank">BackOffice</a>
+              </li>
+            </div>
+            @endif
+          @endauth
 
-          @if(Auth::user()->role === 'admin')
-          <div class="admin-header">
-            <li class="nav-item">
-              <a class="nav-link text-white" href="/member" target="_blank">BackOffice</a>
-            </li>
-          </div>
-          @endif
+
+          
+
+
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="/cart">ตะกร้าของฉัน</a>
+          </li>
           
         </ul>
         <form action="/search" method="get" class="d-flex" role="search">

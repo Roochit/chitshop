@@ -22,6 +22,10 @@
     </a>
 </div>
 
+<a href="{{ url('/cart/add/'.$item->item_id) }}" class="btn btn-outline-primary w-100">
+    เพิ่มลงตะกร้า
+</a>
+
 @endsection
 
 @section('footer')
